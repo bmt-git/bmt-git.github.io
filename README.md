@@ -1,3 +1,5 @@
 # BMT Doc 
 
-BMT documentation.
+BMT wiki.
+
+- Frequently Used Links
