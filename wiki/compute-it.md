@@ -53,6 +53,15 @@ alias safe      'chmod a-w'
 - Use **Fail2Ban** to avoid malicious attack through the SSH port and other ports too. **FIXME** Use the following [Linode Tutorial](https://www.linode.com/docs/guides/using-fail2ban-to-secure-your-server-a-tutorial/) to install and configure fail2ban.
 - **Configure Firewall**. The default application in Ubuntu `ufw` (Uncomplicated Firewall) is disabled. Follow the [Linode Tutorial](https://www.linode.com/docs/guides/configure-firewall-with-ufw/) to install and setup the firewall. Basic setup steps:
 
+- **Users, Groups and Project Area**:
+  - `sudo useradd -c "First Last" -G ptesla -k /etc/skel -s /bin/csh -m vlab1`
+    - Creates a user `vlab1` , adds a supplement group for project tesla `ptesla`, copies skeleton files from `/etc/skel`, sets the SHELL as `/bin/csh` and creates a home directory `-m`.
+  - To create a project area, the corresponding user logs in to his account:
+    - `ssh-keygen -b 4096 -t rsa`
+      - You can leave all default options and for passpharase can be left empty. This will create a 4096-bit RSA keypair (private/public) for SSH which is used for PuTTy, VNC and SVN. 
+    - Copy the public key `~/.ssh/id_rsa.pub` to the SVN server's `~/.ssh/authorized_keys`. This is required to sync the projects in the SVN server.
+    - `bmtproj` -- Choose the appropriate project and if everything goes well, the project area should be created and the SVN repo should be checked out as well.
+
 ## Networking
 
 ### PPTP VPN client in Linux (CentOS7)
