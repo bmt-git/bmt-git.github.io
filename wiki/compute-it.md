@@ -1,24 +1,7 @@
 ---
-sort: 1
+sort: 2
 ---
 
-# USER GUIDES
-
-## REMOTE ACCESS
-
-### Secure VNC access through a SSH tunnel 
-
-VNC connections are, by default, unencrypted. This guide shows how to tunnel VNC traffic through an SSH connection to a local port. For convenience, this guide uses the same local port number as the VNC server eg. `5901` but could be different.
-
-**USING PUTTY IN WINDOWS**
- 
-- Open PuTTY, and enter `userA@<IP-Address>` as the *Host name*, with `userA` being the user on whom the VNC server was configured and `<IP-Address>` is the IP of the remote server.
-
-- Open the `Connections` menu, and select `Tunnels` from under the `SSH` section.
-- Enter `5901` as the *Source port* and `<IP-Address>:<Port>` as the *Destination*. Beneath Desination, select `Local` and `Auto`.
-
-- Click `Add`, and the SSH tunnel begins running.
-  
 # COMPUTING & IT 
 
 ## Cloud Computing
