@@ -28,5 +28,15 @@ VNC connections are, by default, unencrypted. This guide shows how to tunnel VNC
 
 - From now on, you can open PuTTy, select the saved session, clicl **Load** and the click **Open** at the bottom.
 
-- If eve
+- It will ask for username, enter your remote server username to login.
+
+- Once the PuTTy connection is made to the remote server, there should be a secure SSH tunnel from the *local port* (eg. `5901`) to the remote server (eg. `IP-ADDR:5901`).
+  - In order to check if the port is open, in a Windows command window, type the command `netstat -ano | grep 5901` and you should get an output something like:
+
+```
+TCP    127.0.0.1:5901         0.0.0.0:0              LISTENING       7856
+TCP    [::1]:5901             [::]:0                 LISTENING       7856 
+```
+
+- Open the VNC client (eg. `tightVNC`) and enter `localhost:5901` in the *RemoteHost* field and enter the *VNC password*.  
   
