@@ -4,6 +4,35 @@ sort: 1
 
 # USER GUIDES
 
+## CAD
+
+### Tanner
+
+#### Global Nets and Inherited Connections
+
+- For detailed documentation check the siemens support page on [Global Nets](https://docs.sw.siemens.com/en-US/product/862138555/doc/DC202002007.docs.sedit_user.en_us/html/id7817e145-d97d-48b7-b99d-aa0146cb8e01) and [Inherited Connections](https://docs.sw.siemens.com/en-US/product/862138555/doc/DC202002007.docs.sedit_user.en_us/html/idfea98c22-a892-4442-896b-accc59951c18) (**NOTE** You need access to Siemens Support)
+- Check also a knowledge-base on [Net Cap Tool](https://support.sw.siemens.com/knowledge-base/MG595183)
+
+
+__Overriding the Default Net Expression__
+
+Tags #inherited #inherited-connection
+
+- The `NetSet` property is used on a cell instance to override the global signal within the hierarchy of that specific instance. Example: the schematic `dig_tmux_top` in `A0_dig` Lib has two standard-cell circuits `dig_tmux_blksel` and `dig_decoder_3b` with global signals `power_vdd5` and `ground_gnd` attached to `vdd5!` and `gnd!` respectively. To override the net expression and attach the global signals to the pins (`V5V` and `vsa`)
+
+- Steps to pass inherited connections:
+  - Select the instance for which you want to override the default global net.
+  - Click the `Add Property` button in the Properties Navigator.
+  - For overriding the `vdd5!` with the pin `V5V`
+    - Name: `power_vdd5`
+    - Type: `NetSet`
+    - Value: `V5V`
+  - For overriding the `gnd!` with the pin `vsa`
+    - Name: `ground_gnd`
+    - Type: `NetSet`
+    - Value: `vsa`
+
+
 ## REMOTE ACCESS
 
 ### Secure VNC access through a SSH tunnel 
